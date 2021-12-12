@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+             x:Class="SortingAlgorithmAnalysis.Pages.HomePage"
+             Title="Shell Sorting Research and Estimation">
+
+    <StackLayout Padding="10, 0">
+
+        <CollectionView ItemsSource="{Binding Measurements}">
+
+            <CollectionView.Header>
+
+                <StackLayout>
+
+                    <Grid ColumnDefinitions="25, 0.1*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.1*"
+                          ColumnSpacing="1"
+                          Padding="0"
+                          BackgroundColor="Black">
+
+                        <Label Grid.Column="0"
+                                Text="№"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="1"
+                                Text="Elements Count"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="2"
+                                Text="t1"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="3"
+                                Text="t2"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="4"
+                                Text="t3"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="5"
+                                Text="t4"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="6"
+                                Text="t5"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="7"
+                                Text="t6"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="8"
+                                Text="t7"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="9"
+                                Text="t8"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="10"
+                                Text="t9"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="11"
+                                Text="t10"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="12"
+                                Text="t avg, ms"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 2, 1"
+                                Padding="5"/>
+
+                    </Grid>
+
+                </StackLayout>
+
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Grid ColumnDefinitions="25, 0.1*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.053*, 0.1*"
+                          ColumnSpacing="1"
+                          Padding="0"
+                          BackgroundColor="Black">
+
+                        <Label Grid.Column="0"
+                                Text="{Binding Index}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="1"
+                                Text="{Binding ElementsCount}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="2"
+                                Text="{Binding TimeElapsed[0]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="3"
+                                Text="{Binding TimeElapsed[1]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="4"
+                                Text="{Binding TimeElapsed[2]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"/>
+
+                        <Label Grid.Column="5"
+                                Text="{Binding TimeElapsed[3]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="6"
+                                Text="{Binding TimeElapsed[4]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="7"
+                                Text="{Binding TimeElapsed[5]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="8"
+                                Text="{Binding TimeElapsed[6]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="9"
+                                Text="{Binding TimeElapsed[7]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="10"
+                                Text="{Binding TimeElapsed[8]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="11"
+                                Text="{Binding TimeElapsed[9]}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 0, 1"
+                                Padding="5"/>
+
+                        <Label Grid.Column="12"
+                                Text="{Binding AverageTime}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                BackgroundColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                Margin="0, 0, 2, 1"
+                                Padding="5"/>
+
+                    </Grid>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.Footer>
+
+                <StackLayout>
+
+                    <BoxView VerticalOptions="Start"
+                             HorizontalOptions="FillAndExpand"
+                             HeightRequest="1"
+                             BackgroundColor="Black"/>
+
+                    <Label Text="The time it takes to sort the last array:"/>
+
+                    <Label Text="{Binding PredictedTime, StringFormat='Predicted = {0}'}"/>
+
+                    <Label Text="{Binding ActualTime, StringFormat='Actual = {0}'}"/>
+
+                    <oxy:PlotView Model="{Binding EstimationChartModel}"
+                                  BackgroundColor="AliceBlue"
+                                  HeightRequest="700"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </CollectionView.Footer>
+
+        </CollectionView>
+
+    </StackLayout>
+
+</ContentPage>
