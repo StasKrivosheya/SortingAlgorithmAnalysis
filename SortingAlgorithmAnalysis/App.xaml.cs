@@ -1,16 +1,27 @@
-﻿using System;
+﻿using Prism;
+using Prism.Ioc;
+using Prism.Unity;
+using SortingAlgorithmAnalysis.ViewModels;
+using SortingAlgorithmAnalysis.Pages;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SortingAlgorithmAnalysis
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        public App(IPlatformInitializer initializer = null) : base(initializer) { }
+
+        protected async override void OnInitialized()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(HomePage)}");
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
         }
 
         protected override void OnStart()
